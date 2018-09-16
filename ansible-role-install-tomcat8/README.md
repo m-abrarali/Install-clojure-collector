@@ -1,5 +1,5 @@
-Role Name
-=========
+ansible-role-install-tomcat8
+============================
 
 This role is to be played second as part of the ansible-playbook-clojure playbook. This specific role will deploy install apache tomcat version 8 on your host.
 
@@ -38,7 +38,7 @@ The below can be added to your playbook.yml for example, which specifies what ro
 
  The role can then be played as:
 
-     `ansible-playbook [-i /path/to/hosts/file ] playbook.yml -e env=[centos] -b --ask-sudo-pass [--tags tomcat ]`
+     ansible-playbook [-i /path/to/hosts/file ] playbook.yml -e env=[centos] -b --ask-sudo-pass [--tags tomcat ]
 
 License
 -------
