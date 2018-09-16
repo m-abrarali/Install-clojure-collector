@@ -11,11 +11,11 @@ For this role to be played, the host must first have java installed on a host wi
 Role Variables
 --------------
 
-This role have the below variables that can be set, depending on what version of tomcat you are installing and where you would like the installation directory to be located:
+This role has the below variables that can be set, depending on what version of tomcat you are installing and where you would like the installation directory to be located:
 
-- tomcat_installation_directory:
-- tomcat_binary_url:
-- unarchived_tomcat_binary_folder:
+- tomcat_installation_directory
+- tomcat_binary_url
+- unarchived_tomcat_binary_folder
 
 
 Dependencies
