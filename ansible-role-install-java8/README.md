@@ -44,4 +44,4 @@ BSD
 Author Information
 ------------------
 
-The author of this role is m.abrarali (github account)
+The author of this role is m-abrarali (github account)
