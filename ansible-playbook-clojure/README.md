@@ -31,7 +31,7 @@ The below can be added to your playbook.yml for example, which specifies what ro
 
 The role can then be played as:
 
-     `ansible-playbook [-i /path/to/hosts/file ] playbook.yml -e env=[centos] -b --ask-sudo-pass --tags [java,tomcat,clojure]`
+`ansible-playbook [-i /path/to/hosts/file ] playbook.yml -e env=[centos] -b --ask-sudo-pass --tags [java,tomcat,clojure]`
 
 License
 -------
