@@ -1,5 +1,5 @@
-Role Name
-=========
+ansible-role-install-java8
+==========================
 
 This role is to be played first as part of the ansible-playbook-clojure playbook. This specific role will install java8 on your host.
 
@@ -34,7 +34,7 @@ The below can be added to your playbook.yml for example, which specifies what ro
 
 The role can then be played as:
 
-     `ansible-playbook [-i /path/to/hosts/file ] playbook.yml -e env=[centos] -b --ask-sudo-pass [--tags java ]`
+     ansible-playbook [-i /path/to/hosts/file ] playbook.yml -e env=[centos] -b --ask-sudo-pass [--tags java ]
 
 License
 -------
