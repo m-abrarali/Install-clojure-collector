@@ -1,5 +1,5 @@
-Playbook Name
-=============
+ansible-playbook-clojure
+========================
 
 This playbook comprises or 3 roles to ensure your host has java and apache tomcat installed and the clojure collector deployed.
 
