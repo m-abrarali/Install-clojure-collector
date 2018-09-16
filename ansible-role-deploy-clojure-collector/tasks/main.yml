@@ -1,0 +1,6 @@
+---
+# tasks file for ansible-role-deploy-clojure-collector
+
+- name: Import clojure collector task
+  import_tasks: deploy-clojure-collector.yml
+  tags: clojure

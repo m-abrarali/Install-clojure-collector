@@ -1,0 +1,16 @@
+---
+# vars file for ansible-playbook-clojure
+
+# vars for ansible-role-install-java8
+ansible_distribution:
+  - CentOS
+
+# vars for ansible-role-install-tomcat8
+tomcat_installation_directory: /opt/tomcat/
+tomcat_binary_url: http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.zip
+unarchived_tomcat_binary_folder: apache-tomcat-8.5.34
+
+# vars for ansible-role-deploy-clojure-collector
+tomcat_installation_directory: /opt/tomcat/
+clojure_collector: clojure-collector-1.1.0-standalone
+clojure_destination_folder: /opt/clojure-collector-1.1.0-standalone

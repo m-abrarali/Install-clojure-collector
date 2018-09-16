@@ -1,0 +1,7 @@
+---
+# handlers file for ansible-playbook-clojure
+- name: Restart tomcat
+  service:
+    name: tomcat
+    state: restarted
+    enabled: yes

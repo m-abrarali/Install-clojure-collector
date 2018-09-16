@@ -1,0 +1,37 @@
+---
+# tasks file for ansible-role-deploy-clojure-collector
+- name: Create {{ clojure_destination_folder }}
+  file:
+    path: "{{ clojure_destination_folder }}"
+    state: directory
+
+- name: Copy the war file {{ clojure_collector }}.war to {{ clojure_destination_folder }}
+  copy:
+    src: "files/{{ clojure_collector }}.war"
+    dest: "{{ clojure_destination_folder }}"
+    force: yes
+
+- name: Unzip WAR file
+  unarchive:
+    src: "{{ clojure_destination_folder }}/{{ clojure_collector }}.war"
+    dest: "{{ tomcat_installation_directory }}webapps/ROOT/"
+    copy: no
+    mode: 0755
+    owner: tomcat
+    group: tomcat
+  notify:
+    - Restart tomcat
+
+- name: Remove current war file {{ clojure_destination_folder }}/{{ clojure_collector }}.war
+  file:
+    path: "{{ clojure_destination_folder }}/{{ clojure_collector }}.war"
+    state: absent
+
+- name: Wait until the clojure folder {{ clojure_destination_folder }}/{{ clojure_collector }} is deleted
+  wait_for:
+    path: "{{ clojure_destination_folder }}/{{ clojure_collector }}.war"
+    state: absent
+  register: folder_info
+
+- name: Deployment Complete
+  debug: msg='Deployment Complete'

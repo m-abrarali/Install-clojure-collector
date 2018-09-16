@@ -1,0 +1,4 @@
+---
+# tasks file for ansible-role-install-tomcat8
+- import_tasks: install-tomcat8.yml
+  tags: tomcat

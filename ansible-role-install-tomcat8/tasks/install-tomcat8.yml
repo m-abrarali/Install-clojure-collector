@@ -1,0 +1,84 @@
+
+---
+# tasks file for ansible-role-install-tomcat8
+- name: Ensure group tomcat exists
+  group:
+    name: tomcat
+    state: present
+
+- name: Add the user tomcat with a primary group of tomcat
+  user:
+    name: tomcat
+    comment: tomcat user
+    group: tomcat
+    home: /opt/tomcat
+    shell: /bin/nologin
+    state: present
+
+- name: Create tomcat installation directory and change it's group ownership
+  file:
+    path: "{{ tomcat_installation_directory }}"
+    state: directory
+    group: tomcat
+    mode: g=x
+
+- name: Make tomcat user owner of {{ tomcat_installation_directory }}
+  file:
+    path: "{{ tomcat_installation_directory }}"
+    owner: tomcat
+
+- name: Extract archive
+  unarchive:
+    src: "{{ tomcat_binary_url }}"
+    dest: /tmp/
+    remote_src: yes
+
+- name: Copy files over to tomcat
+  command: "cp -r /tmp/{{ unarchived_tomcat_binary_folder }}/. {{ tomcat_installation_directory }}"
+
+- name: Update permissions
+  file:
+    path: "{{ tomcat_installation_directory }}"
+    state: directory
+    group: tomcat
+    recurse: yes
+
+- name: Give tomcat group read access to the conf directory
+  file:
+    path: "{{ tomcat_installation_directory }}conf/"
+    mode: g=r
+    recurse: yes
+
+- name: Give tomcat execute on conf folder
+  file:
+    path: "{{ tomcat_installation_directory }}conf/"
+    mode: g+x
+
+- name: Give tomcat execute on binfolder
+  file:
+    path: "{{ tomcat_installation_directory }}bin/"
+    mode: g+x
+    recurse: yes
+
+- name: Make tomcat user owner of webapps/ work/ temp/ logs/
+  file:
+    path: "{{ tomcat_installation_directory }}{{ item }}"
+    owner: tomcat
+    recurse: yes
+  with_items:
+    - webapps/
+    - work/
+    - temp/
+    - logs/
+
+- name: Install Systemd unit file
+  copy:
+    src: files/tomcat.service
+    dest: /etc/systemd/system/tomcat.service
+    force: yes
+
+- name: Force systemd to reread configs
+  systemd:
+    daemon_reload: yes
+  notify:
+    - Restart tomcat

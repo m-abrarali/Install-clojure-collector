@@ -1,0 +1,5 @@
+---
+# vars file for ansible-role-install-tomcat8
+tomcat_installation_directory: /opt/tomcat/
+tomcat_binary_url: http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.zip
+unarchived_tomcat_binary_folder: apache-tomcat-8.5.34

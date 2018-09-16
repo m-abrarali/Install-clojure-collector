@@ -1,0 +1,6 @@
+---
+# tasks file for ansible-role-install-java8
+- yum:
+    name: java-1.8.0-openjdk
+    state: present
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'

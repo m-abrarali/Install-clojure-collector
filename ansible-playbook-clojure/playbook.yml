@@ -1,0 +1,11 @@
+---
+
+- hosts: "{{ env }}"
+  connection:
+  gather_facts: no
+  vars_files:
+    - ./vars/vars.yml
+  roles:
+    - "../ansible-role-install-java8"
+    - "../ansible-role-install-tomcat8"
+    - "../ansible-role-deploy-clojure-collector"

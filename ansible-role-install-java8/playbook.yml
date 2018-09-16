@@ -1,0 +1,7 @@
+---
+
+- hosts: "{{ env }}"
+  connection:
+  gather_facts: no
+  roles:
+    - "ansible-role-install-java8"

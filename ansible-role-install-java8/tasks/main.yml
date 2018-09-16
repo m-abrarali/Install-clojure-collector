@@ -1,0 +1,4 @@
+---
+# tasks file for ansible-role-install-java8
+- import_tasks: install-java8.yml
+  tags: java
