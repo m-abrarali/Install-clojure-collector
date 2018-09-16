@@ -20,7 +20,7 @@ Lastly add the host ip to your inventory file and run the playbook.
 The zip file contains all you need to get you going, 3 roles which the playbook runs, once unzipped into the same folder, cd in the ansible-playbook-clojure directory and run:
 
 
-          ansible-playbook playbook.yml -e env=host(s) -b --ask-sudo-pass
+          ansible-playbook playbook.yml -e env=[centos] -b --ask-sudo-pass
 
 
 Please refer to the individual README.md files located in each role and playbook for more detailed information on the configuration of the server.
