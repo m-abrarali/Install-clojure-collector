@@ -1,4 +1,4 @@
-Role Name
+ansible-role-deploy-clojure-collector
 =========
 
 This role is to be played third as part of the ansible-playbook-clojure playbook. This specific role will deploy the clojure collector WAR file to your tomcat server.
