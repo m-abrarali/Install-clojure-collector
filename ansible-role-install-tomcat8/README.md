@@ -1,7 +1,7 @@
 ansible-role-install-tomcat8
 ============================
 
-This role is to be played second as part of the ansible-playbook-clojure playbook. This specific role will deploy install apache tomcat version 8 on your host.
+This role is to be played second as part of the ansible-playbook-clojure playbook. This specific role will install apache tomcat version 8 on your host.
 
 Requirements
 ------------
